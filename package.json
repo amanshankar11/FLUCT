@@ -1,0 +1,15 @@
+{
+  "name": "pulsewatch",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "npm run build -w @pulsewatch/core && concurrently -n api,worker,web -c blue,magenta,green \"npm:dev -w @pulsewatch/api\" \"npm:dev -w @pulsewatch/worker\" \"npm:dev -w @pulsewatch/web\"",
+    "build": "npm run build -w @pulsewatch/core && npm run build -w @pulsewatch/api && npm run build -w @pulsewatch/worker && npm run build -w @pulsewatch/web",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  }
+}
