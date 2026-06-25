@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
 import tls from 'node:tls';
+import http from 'node:http';
 import { Worker } from 'bullmq';
 import nodemailer from 'nodemailer';
 import pg from 'pg';
@@ -107,6 +108,8 @@ new Worker('checks', async (job) => {
 
 console.log('FLUCT check worker started');
 
-import http from 'node:http';
+
 const port = Number(process.env.PORT ?? 3000);
-http.createServer((_, res) => res.end('ok')).listen(port);
+http.createServer((_, res) => res.end('ok')).listen(port, () => {
+  console.log(`Worker HTTP server listening on port ${port}`);
+});
