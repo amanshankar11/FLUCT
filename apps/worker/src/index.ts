@@ -106,3 +106,7 @@ new Worker('checks', async (job) => {
 }, { connection: redisConnection, concurrency: 20 });
 
 console.log('FLUCT check worker started');
+
+import http from 'node:http';
+const port = Number(process.env.PORT ?? 3000);
+http.createServer((_, res) => res.end('ok')).listen(port);
