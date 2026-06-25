@@ -9,7 +9,7 @@ type Monitor = { id:string;name:string;url:string;status:'pending'|'up'|'down';i
 type Check = { success:boolean;statusCode:number|null;latencyMs:number;error:string|null;checkedAt:string };
 type Incident = { id:string;monitorId:string;startedAt:string;resolvedAt:string|null;cause:string|null;acknowledgedAt:string|null;acknowledgedBy:string|null;durationSeconds:number };
 type Summary = { total:number;up:number;down:number;uptime:number|null;averageLatency:number|null };
-const API = 'http://localhost:4000/api';
+const API = 'https://fluct-api2.onrender.com/api';
 
 function getToken() { return localStorage.getItem('fluct_token'); }
 function duration(seconds:number){if(seconds<60)return `${seconds}s`;if(seconds<3600)return `${Math.floor(seconds/60)}m`;return `${Math.floor(seconds/3600)}h ${Math.floor((seconds%3600)/60)}m`}
