@@ -1180,7 +1180,7 @@ type Summary = {
 type User = { id: string; name: string; email: string; phoneCountryCode?: string | null; phoneNumber?: string | null };
 type ApiKey = { id:string;name:string;keyPrefix:string;createdAt:string;lastUsedAt?:string|null };
 type MaintenanceWindow = { id:string;startsAt:string;endsAt:string;reason:string|null };
-const API = "http://localhost:4000/api";
+const API = 'https://fluct-api2.onrender.com/api';
 const auth = () => ({
   Authorization: `Bearer ${localStorage.getItem("fluct_token")}`,
 });
