@@ -11,17 +11,6 @@ An API monitoring and incident platform that runs scheduled HTTP checks, stores 
 - PostgreSQL: monitors, checks, and incidents
 - Redis: repeatable jobs and the worker queue
 
-## Local setup
-
-1. Create the isolated database and Redis service with `docker compose up -d`.
-   If using an existing PostgreSQL installation instead, run `infra/create-database.sql`
-   while connected to `postgres`, then run `infra/schema.sql` against `pulsewatch`.
-2. Copy `.env.example` to `.env` and adjust connection details.
-4. Run `npm install`.
-5. Run `npm run dev`.
-6. Open http://localhost:5173.
-
-Email is optional. Without SMTP settings, alert messages are logged by the worker.
 
 ## API
 
